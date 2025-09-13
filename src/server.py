@@ -20,11 +20,15 @@ def get_server_info() -> dict:
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     host = "0.0.0.0"
-    
+
     print(f"Starting FastMCP server on {host}:{port}")
-    
+
     mcp.run(
         transport="http",
         host=host,
         port=port
     )
+
+# Create FastAPI app and mount MCP
+app = FastAPI()
+mount_mcp(app, mcp, base_path="/mcp")
