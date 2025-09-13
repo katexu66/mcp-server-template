@@ -28,7 +28,3 @@ if __name__ == "__main__":
         host=host,
         port=port
     )
-
-# Create FastAPI app and mount MCP
-app = FastAPI()
-mount_mcp(app, mcp, base_path="/mcp")
